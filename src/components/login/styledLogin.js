@@ -120,6 +120,8 @@ export const StyledLogin = styled.div`
 
     @media(min-width: 425px){
         min-height: 1180px;
+        align-items: flex-start;
+        padding-top: 80px;
         .container{
             width: 369px;
         }

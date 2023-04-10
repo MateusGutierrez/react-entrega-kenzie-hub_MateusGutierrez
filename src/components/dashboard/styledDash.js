@@ -54,18 +54,23 @@ export const StyledDash = styled.div`
         line-height: 22px;
         color: #868E96;
     }
+    .div_notice{
+        display: none
+    }
     @media(min-width: 425px){
         height: 1200px;
         .header_container{
             justify-content: space-around;
+            
         }
         .section_user{
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
+            padding-left: 85px;
         }
         .div_notice{
-            padding-left: 20%;
+            padding-left: 23%;
             margin-top: 5%;
         }
         .notine_title{

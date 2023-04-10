@@ -7,7 +7,7 @@ import { StyledDash } from "./styledDash"
 export const Dashboard = () => {
 
     const {id} = useParams()
-    const [userInfo, setUserInfo] = useState([])
+    const [userInfo, setUserInfo] = useState({})
 
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export const Dashboard = () => {
 
     const logout = () => {
         localStorage.clear()
-        setUserInfo([])
+        setUserInfo({})
     }
 
     return (

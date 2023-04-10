@@ -22,11 +22,11 @@ export const Register = () => {
         
         async function post(){
             try {
-                const response = await api.post("/users", formData).then((response) => {
+                const response = await api.post("/users", formData)
                     
                     toast.success("Cadastro realizado com sucesso!", {autoClose:2500})
                     navigate("/sessions")
-                })
+            
             } catch (error) {
                 
                 toast.error('Erro ao realizar o cadastro!', {autoClose:2500})

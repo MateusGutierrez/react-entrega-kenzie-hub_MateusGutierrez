@@ -16,23 +16,21 @@ export const Login = () => {
         resolver: zodResolver(loginSchema),
     })
     const [aviso, setAviso] = useState("")
-    const [user, setUser] = useState([])
     const navigate = useNavigate()
-
+    
     const submit = (formData) => {
         
         setAviso("Loading ...")
         async function post(){
             try {
-                const response = await api.post("/sessions", formData).then((response) => {
+                const response = await api.post("/sessions", formData)
 
                     localStorage.setItem("@TOKEN",response.data.token)
                     localStorage.setItem("@USERID", response.data.user.id)
-                    setUser(response.data.user)
                     setAviso("Login realizado com sucesso")
                     toast.success("Login realizado com sucesso!", {autoClose:2500})
                     navigate(`/users/${response.data.user.id}`)
-                })
+            
             } catch (error) {
                 
                 toast.error("Erro ao realizar o login!", {autoClose:2500})
@@ -40,9 +38,10 @@ export const Login = () => {
         }post()
     }
     return(
+        
         <StyledLogin>
             <div className="container">
-
+            
                 <h1 className="kenzie_title">Kenzie Hub</h1>
         
                 <form onSubmit={handleSubmit(submit)} className="form_login">
