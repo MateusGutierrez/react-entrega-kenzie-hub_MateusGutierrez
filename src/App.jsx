@@ -5,7 +5,9 @@ const App = () => {
   return(
     <>
       <GlobalStyle/>
-      <MainRoute/>
+      
+        <MainRoute/>
+
     </>
   )
 }

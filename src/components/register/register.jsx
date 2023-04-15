@@ -2,37 +2,19 @@ import {Link} from "react-router-dom"
 import {useForm} from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { schema } from "../../schema/schema"
-import { useState } from "react"
-import { ToastContainer, toast } from "react-toastify"
+import { ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom"
-import { api } from "../../services/api"
 import { StyledRegister } from "./styledRegister"
-
+import { useContext } from "react";
+import { UserContext } from "../../contexts/userContext";
 
 
 export const Register = () => {
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: zodResolver(schema),
     })
-    const [aviso, setAviso] = useState("")
-    const navigate = useNavigate()
-
-    const submit = (formData) => {
-        
-        async function post(){
-            try {
-                const response = await api.post("/users", formData)
-                    
-                    toast.success("Cadastro realizado com sucesso!", {autoClose:2500})
-                    navigate("/sessions")
-            
-            } catch (error) {
-                
-                toast.error('Erro ao realizar o cadastro!', {autoClose:2500})
-            }
-        }post()
-    }
+    
+    const {registerSubmit} = useContext(UserContext)
 
     return (
         <StyledRegister>
@@ -42,7 +24,7 @@ export const Register = () => {
                     <Link to={"/sessions"} className="button_back">Voltar</Link>
                 </header>
 
-                <form onSubmit={handleSubmit(submit)} noValidate className="form_register">
+                <form onSubmit={handleSubmit(registerSubmit)} noValidate className="form_register">
                     <div className="div_mesage">
                         <h3 className="register_title">Crie sua conta</h3>
                         <p className="register_text">Rápido e grátis, vamos nessa!</p>
@@ -97,7 +79,7 @@ export const Register = () => {
                     
                     <button type="submit" className="button_register">Cadastrar</button>
                     
-                    <h2 className="text_notice">{aviso}</h2>
+                    <h2 className="text_notice"></h2>
                 </form>
             </div>
             <ToastContainer theme="dark"/>

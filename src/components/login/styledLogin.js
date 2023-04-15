@@ -82,12 +82,6 @@ export const StyledLogin = styled.div`
         line-height: 21px;
         color:  #FFFFFF;
     }
-    .loading{
-        color: #FF577F;
-        margin-top: 10px;
-        font-size: 12px;
-        text-align: center;
-    }
     .mesage_to_register{
         font-style: normal;
         font-weight: 600;
