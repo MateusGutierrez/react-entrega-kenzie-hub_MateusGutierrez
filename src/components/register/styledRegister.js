@@ -50,7 +50,7 @@ export const StyledRegister = styled.div`
         background: #212529;
         box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
         border-radius: 4px;
-        max-height: fit-content;
+        max-height: 730px;
         padding-top: 30px;
         margin-bottom: 50px;
         padding-bottom: 30px;
@@ -88,8 +88,9 @@ export const StyledRegister = styled.div`
     .text_error{
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 9px;
         color: #F8F9FA;
+        margin-top: -18px;
     }
     .label_input{
         font-style: normal;

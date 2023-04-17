@@ -4,12 +4,11 @@ import { Navigate, Outlet } from "react-router-dom"
 import { LoadingComponent } from "../loadingComponent/loadingComponent"
 
 export const ProtectedRoutes = () => {
-    const {user, aviso } = useContext(UserContext)
+    const {user, mesage } = useContext(UserContext)
 
-    if(aviso){
+    if(mesage){
         return (
         <LoadingComponent/>
-        
         )
     }
     

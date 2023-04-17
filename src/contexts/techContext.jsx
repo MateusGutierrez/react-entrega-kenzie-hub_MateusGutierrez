@@ -20,6 +20,10 @@ export const TechProvider = ({children}) => {
         async function getInfoUser(){
             const token = localStorage.getItem("@TOKEN")
 
+            if(!token){
+                navigate("/")
+            }            
+            
             try {
                 const response = await api.get(`/users/${id}`, {
                     headers: {
@@ -38,7 +42,11 @@ export const TechProvider = ({children}) => {
 
     const logout = () => {
         localStorage.clear()
-        setUserInfo({})
+        toast.success("Saiu!", {autoClose:1500})
+        setTimeout(() => {
+            setUserInfo({})
+            navigate(`/`)
+        }, 1500)
     }
 
     const handleOpenPlusModal = () => {

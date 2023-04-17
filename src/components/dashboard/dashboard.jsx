@@ -11,11 +11,10 @@ import { Techs } from "../tech/techs"
 
 export const Dashboard = () => {
 
-    const {logout} = useContext(UserContext)
     const {
         userInfo, handleOpenPlusModal,
         handleClosePlusModal, showPlusModal,
-        handleCloseInfo, showInfoModal,
+        handleCloseInfo, showInfoModal, logout
     } = useContext(TechContext)
 
     return (
@@ -23,9 +22,8 @@ export const Dashboard = () => {
             <div className="container">
                 <header className="header_container">
                     <h1 className="header_title">Kenzie Hub</h1>
-                    <Link to={"/sessions"}>
-                        <button onClick={() => logout} className="button_back">Sair</button>
-                    </Link>
+                    <button onClick={() => logout()} className="button_back">Sair</button>
+                    
                 </header>
                 <p className="borda"></p>
 
@@ -34,7 +32,6 @@ export const Dashboard = () => {
                     <p className="user_module">{userInfo.course_module}</p>
                 </section>
                 <p className="borda"></p>
-                {/* lista de techs */}
                 <section className="section_tech">
                     <div className="div_tech">
                         <h2 className="tecnologias">Tecnologias</h2>

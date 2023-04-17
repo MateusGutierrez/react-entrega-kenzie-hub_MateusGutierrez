@@ -1,18 +1,30 @@
 import styled from "styled-components"
 
 export const StyledInfoModal = styled.div`
-    width: 296px;
-    height: 274.34px;
-    position: fixed;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    background: #212529;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); 
+        opacity: 1; 
+        
+    .back_modal{
+        width: 296px;
+        height: 274.34px;
+        position: fixed;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        background: #212529;
+    }
+
     .div_modalInfo{
         display: flex;
         justify-content: space-between;
@@ -100,8 +112,10 @@ export const StyledInfoModal = styled.div`
         cursor: pointer;
     }
     @media(min-width: 425px){
-        width: 369px;
-        height: 342px;
+        .back_modal{
+            width: 369px;
+            height: 342px;
+        }
 
         .info_modalTitle{
             font-style: normal;

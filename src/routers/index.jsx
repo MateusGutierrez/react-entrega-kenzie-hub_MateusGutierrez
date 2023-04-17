@@ -21,6 +21,12 @@ export const MainRoute = () => {
             </Route>
 
             <Route path="/" element={<Navigate to="/sessions"/>}/>
+            <Route path="/home" element={<Navigate to="/sessions"/>}/>
+            <Route path="/login" element={<Navigate to="/sessions"/>}/>
+
+            <Route path="/register" element={<Navigate to="/users"/>}/>
+            <Route path="/cadastro" element={<Navigate to="/users"/>}/>
+            
             <Route path="*" element={<h1>Página não encontrada</h1>}/>
         </Routes>
     )

@@ -8,18 +8,18 @@ import jwtDecode from "jwt-decode";
 export const UserContext = createContext({})
 
 export const UserProvider = ({children}) => {
-    const [aviso, setAviso] = useState(true)
+    const [mesage, setMesage] = useState(true)
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
     
     useEffect(() => {
-
+        
         const loadUser = async () => {
             try {
                 const token = localStorage.getItem("@TOKEN")
-            
-                if(!token){
-                    return
+                const id = localStorage.getItem("@USERID")
+                if(token){
+                    navigate(`/users/${id}`)
                 }
         
                 const {sub} = jwtDecode(token)
@@ -33,7 +33,7 @@ export const UserProvider = ({children}) => {
             }catch (error) {
                 console.log(error)
             }finally{                
-                setAviso(false)
+                setMesage(false)
             }
         }
         loadUser()
@@ -55,8 +55,11 @@ export const UserProvider = ({children}) => {
                 localStorage.setItem("@TOKEN",response.data.token)
                 localStorage.setItem("@USERID", response.data.user.id)
 
-                navigate(`/users/${response.data.user.id}`)
+                
                 toast.success("Login realizado com sucesso!", {autoClose:2500})
+                setTimeout(() => {
+                        navigate(`/users/${response.data.user.id}`)
+                    }, 2500)
 
             } catch (error) {
                 
@@ -71,8 +74,11 @@ export const UserProvider = ({children}) => {
             try {
                 const response = await api.post("/users", formData)
                     
-                    toast.success("Cadastro realizado com sucesso!", {autoClose:2500})
-                    navigate("/sessions")
+                toast.success("Cadastro realizado com sucesso!", {autoClose:2500})
+                setTimeout(() => {
+                        navigate("/sessions")
+                        localStorage.clear()
+                    }, 2500)
             
             } catch (error) {
                 
@@ -81,8 +87,13 @@ export const UserProvider = ({children}) => {
         }post()
     }
 
+    const logout = () => {
+        localStorage.clear()
+        navigate("/")
+    }
+
     return (
-        <UserContext.Provider value={{loginSubmit, registerSubmit, user, aviso}}>
+        <UserContext.Provider value={{loginSubmit, registerSubmit, user, mesage, logout}}>
             {children}
         </UserContext.Provider>
     )
