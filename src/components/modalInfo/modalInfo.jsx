@@ -28,9 +28,9 @@ export const ModalInfo = (props) => {
                     <div className="div_input_nameInfo">
                         <p className="nameInfo" >Status</p>
                         <select name="" id="" className="inputInfo" {...register("status")}>
-                            <option value="iniciate">Iniciante</option>
-                            <option value="intermediário">Intermediário</option>
-                            <option value="avançado">Avançado</option>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
                         </select>
                     </div>
                     <div className="div_buttonsInfo">

@@ -2,7 +2,7 @@ import {Link} from "react-router-dom"
 import {useForm} from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { schema } from "../../schema/schema"
-import { ToastContainer} from "react-toastify"
+import { toast, ToastContainer} from "react-toastify"
 import "react-toastify/dist/ReactToastify.css";
 import { StyledRegister } from "./styledRegister"
 import { useContext } from "react";
@@ -31,19 +31,17 @@ export const Register = () => {
                     </div>
                     <div className="div_input">
                         <label className="label_input">Nome</label>
-                        <input type="text" className="input_register" placeholder="Digite aqui seu nome" {...register("name")}/>
-                        {errors.name ? <p className="text_error">{errors.name.message}</p>: null}
+                        <input type="text" className="input_register" placeholder="Digite aqui seu nome" {...register("name")} required/>
 
                     </div>
                     <div className="div_input">
                         <label className="label_input">Email</label>
-                        <input type="email" className="input_register" placeholder="Digite aqui seu email"  {...register("email")}/>
-                        {errors.email ? <p className="text_error">{errors.email.message}</p>: null}
-
+                        <input type="email" className="input_register" placeholder="Digite aqui seu email"  {...register("email")} required/>
+                        
                     </div>
                     <div className="div_input">
                         <label className="label_input">Senha</label>
-                        <input type="password" className="input_register" placeholder="Digite aqui sua senha" {...register("password")}/>
+                        <input type="password" className="input_register" placeholder="Digite aqui sua senha" {...register("password")} />
                         {errors.password ? <p className="text_error">{errors.password.message}</p>: null}
 
                     </div>
@@ -55,14 +53,12 @@ export const Register = () => {
                     </div>
                     <div className="div_input">
                         <label className="label_input">Bio</label>
-                        <input type="text" className="input_register" placeholder="Fale sobre você" {...register("bio")} />
-                        {errors.bio ? <p className="text_error">{errors.bio.message}</p>: null}
+                        <input type="text" className="input_register" placeholder="Fale sobre você" {...register("bio")} required/>
 
                     </div>
                     <div className="div_input">
                         <label className="label_input">Contato</label>
-                        <input type="text" className="input_register" placeholder="Opção de contato" {...register("contact")}/>
-                        {errors.contact ? <p className="text_error">{errors.contact.message}</p>: null}
+                        <input type="text" className="input_register" placeholder="Opção de contato" {...register("contact")} required/>
 
                     </div>
                     <div className="div_input">

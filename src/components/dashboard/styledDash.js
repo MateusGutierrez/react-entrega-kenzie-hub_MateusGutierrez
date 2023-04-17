@@ -91,6 +91,8 @@ export const StyledDash = styled.div`
         margin-right: 8px;
         background: #121214;
         border-radius: 4.06066px;
+        cursor: pointer;
+
     }
     .tech_container:hover{
         background-color: #343B41;
